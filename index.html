@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 뒤집기 게임 🍎</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍎 카드 뒤집기 게임</h1>
+            <div class="user-section">
+                <button id="loginBtn" class="btn btn-secondary">로그인</button>
+                <span id="userDisplay" class="hidden"></span>
+                <button id="logoutBtn" class="btn btn-secondary hidden">로그아웃</button>
+            </div>
+        </header>
+
+        <div class="game-info">
+            <div class="info-item">
+                <span class="label">이동 횟수:</span>
+                <span id="moves" class="value">0</span>
+            </div>
+            <div class="info-item">
+                <span class="label">시간:</span>
+                <span id="timer" class="value">0초</span>
+            </div>
+            <div class="info-item">
+                <span class="label">점수:</span>
+                <span id="score" class="value">1000</span>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button id="startBtn" class="btn btn-primary">게임 시작</button>
+            <button id="resetBtn" class="btn btn-secondary">다시 시작</button>
+            <button id="leaderboardBtn" class="btn btn-secondary">리더보드</button>
+        </div>
+
+        <div id="gameBoard" class="game-board"></div>
+
+        <!-- 게임 완료 모달 -->
+        <div id="winModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>🎉 축하합니다!</h2>
+                <p>게임을 완료했습니다!</p>
+                <div class="win-stats">
+                    <p>이동 횟수: <strong id="finalMoves">0</strong></p>
+                    <p>시간: <strong id="finalTime">0</strong>초</p>
+                    <p>최종 점수: <strong id="finalScore">0</strong></p>
+                </div>
+                <div id="saveScoreSection" class="hidden">
+                    <button id="saveScoreBtn" class="btn btn-primary">점수 저장</button>
+                </div>
+                <button id="closeModalBtn" class="btn btn-secondary">닫기</button>
+            </div>
+        </div>
+
+        <!-- 로그인 모달 -->
+        <div id="loginModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>로그인 / 회원가입</h2>
+                <div class="auth-forms">
+                    <input type="email" id="email" placeholder="이메일" class="input-field">
+                    <input type="password" id="password" placeholder="비밀번호" class="input-field">
+                    <div class="auth-buttons">
+                        <button id="signInBtn" class="btn btn-primary">로그인</button>
+                        <button id="signUpBtn" class="btn btn-secondary">회원가입</button>
+                    </div>
+                    <button id="closeLoginBtn" class="btn btn-text">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
